@@ -4,7 +4,7 @@ import java.util.List;
 
 import beans.entete_facture.EnteteFacture;
 
-public interface EnteteFactureDAO extends GenericDAO<EnteteFacture, Integer> {
+public interface EnteteFactureDAO extends GenericDao<EnteteFacture, Integer> {
 
 	public void ajouterEnteteFacture(EnteteFacture enteteFacture);
 

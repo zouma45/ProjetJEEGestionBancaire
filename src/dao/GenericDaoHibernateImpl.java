@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import beans.client.Client;
+
 @SuppressWarnings("unchecked")
 public abstract class GenericDaoHibernateImpl<E, PK extends Serializable> implements GenericDao<E, PK> {
 	/**

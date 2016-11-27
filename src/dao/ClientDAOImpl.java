@@ -4,35 +4,35 @@ import java.util.List;
 
 import beans.client.Client;
 
-public class ClientDAOImpl extends GenericDAOImpl<Client, Integer> implements ClientDAO {
+public class ClientDAOImpl extends GenericDaoHibernateImpl<Client, Integer> implements ClientDAO {
 
 	@Override
 	public void ajouterClient(Client client) {
-		super.ajouter(client);
+		super.add(client);
 
 	}
 
 	@Override
 	public void modifierClient(Client client) {
-		super.modifier(client);
+		super.update(client);
 
 	}
 
 	@Override
 	public void supprimerClient(Client client) {
-		super.supprimer(client);
+		super.remove(client);
 
 	}
 
 	@Override
-	public Client findClientByID(Class clazz, Integer id) {
-		return super.findByID(clazz, id);
+	public Client findClientByID(Integer id) {
+		return super.find(id);
 	}
 
 	@Override
-	public List<Client> findAllClient(Class clazz) {
+	public List<Client> findAllClient() {
 
-		return super.findAll(clazz);
+		return super.getAll();
 	}
 
 }
