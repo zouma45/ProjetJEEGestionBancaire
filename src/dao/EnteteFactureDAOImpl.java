@@ -1,39 +1,54 @@
 package dao;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import beans.entete_facture.EnteteFacture;
 
 public class EnteteFactureDAOImpl extends GenericDaoHibernateImpl<EnteteFacture, Integer> implements EnteteFactureDAO {
 
 	@Override
-	public void ajouterEnteteFacture(EnteteFacture enteteFacture) {
-		super.add(enteteFacture);
+	public boolean ajouter(EnteteFacture categ) {
+		try {
+			super.add(categ);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 
 	}
 
 	@Override
-	public void modifierEnteteFacture(EnteteFacture enteteFacture) {
-		super.update(enteteFacture);
-
+	public boolean modifier(EnteteFacture categ) {
+		try {
+			super.update(categ);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
-	public void supprimerEnteteFacture(EnteteFacture enteteFacture) {
-		super.remove(enteteFacture);
-
+	public boolean supprimer(EnteteFacture categ) {
+		try {
+			super.remove(categ);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
-	@Override
-	public EnteteFacture findEnteteFactureByID(Integer id) {
-
-		return super.find(id);
+	public EnteteFacture retourner(Integer key) {
+		return (EnteteFacture) super.find(key);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<EnteteFacture> findAllEnteteFacture() {
-
-		return super.getAll();
+	public ArrayList<EnteteFacture> listeEnteteFacture() {
+		currentSession().beginTransaction();
+		return (ArrayList<EnteteFacture>) super.currentSession().createQuery("from Categorie").list();
 	}
 
 }

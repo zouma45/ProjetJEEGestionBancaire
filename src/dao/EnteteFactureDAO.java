@@ -1,19 +1,19 @@
 package dao;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import beans.entete_facture.EnteteFacture;
 
 public interface EnteteFactureDAO extends GenericDao<EnteteFacture, Integer> {
 
-	public void ajouterEnteteFacture(EnteteFacture enteteFacture);
+	boolean ajouter(EnteteFacture enteteFacture);
 
-	public void modifierEnteteFacture(EnteteFacture enteteFacture);
+	boolean modifier(EnteteFacture enteteFacture);
 
-	public void supprimerEnteteFacture(EnteteFacture enteteFacture);
+	boolean supprimer(EnteteFacture enteteFacture);
 
-	public EnteteFacture findEnteteFactureByID(Integer id);
+	EnteteFacture retourner(Integer key);
 
-	public List<EnteteFacture> findAllEnteteFacture();
+	ArrayList<EnteteFacture> listeEnteteFacture();
 
 }

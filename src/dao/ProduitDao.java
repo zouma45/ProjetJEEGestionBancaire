@@ -7,6 +7,7 @@ import beans.produits.Produit;
 
 
 public interface ProduitDao extends GenericDao<Produit, Integer> {
+	
 	boolean ajouter(Produit p);
 
 	boolean modifier(Produit p);

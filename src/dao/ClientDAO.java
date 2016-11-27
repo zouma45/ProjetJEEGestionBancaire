@@ -1,19 +1,21 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import beans.client.Client;
+import beans.produits.Produit;
 
 public interface ClientDAO extends GenericDao<Client, Integer> {
 
-	public void ajouterClient(Client client);
+	boolean ajouter(Client c);
 
-	public void modifierClient(Client client);
+	boolean modifier(Client c);
 
-	public void supprimerClient(Client client);
+	boolean supprimer(Client c);
 
-	public Client findClientByID(Integer id);
+	Client retourner(Integer key);
 
-	public List<Client> findAllClient();
+	ArrayList<Client> listeClient();
 
 }
