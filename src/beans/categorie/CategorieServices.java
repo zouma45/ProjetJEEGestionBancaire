@@ -2,18 +2,23 @@ package beans.categorie;
 
 import java.util.List;
 
-public interface CategorieServices {
+import beans.GenericService;
 
-	public void addCategory(Categorie categorie);
 
-	public void removeCategory(int id);
 
-	void updateCategory(Categorie categorie, int id);
+public interface CategorieServices extends GenericService<Categorie, Integer>{
 
-	List<Categorie> showCategories();
+	public void add(Categorie categorie);
 
-	Categorie getCategoryById(int id);
+	public void remove(Categorie categorie);
+
+	void update(Categorie categorie);
+
+	List<Categorie> show();
+
+	Categorie getById(int id);
 	
-	Categorie getCategoryByName(String name);
+	
+
 
 }

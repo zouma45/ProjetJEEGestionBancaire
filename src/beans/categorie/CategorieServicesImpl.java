@@ -2,42 +2,51 @@ package beans.categorie;
 
 import java.util.List;
 
-public class CategorieServicesImpl  implements CategorieServices{
+import beans.GenericServicesImpl;
+import dao.CategorieDaoImpl;
 
+
+
+
+public class CategorieServicesImpl extends GenericServicesImpl<Categorie, Integer>  implements CategorieServices{
+	
+	CategorieDaoImpl categorieDao;
+	
 	@Override
-	public void addCategory(Categorie categorie) {
-		// TODO Auto-generated method stub
+	public void add(Categorie entity) {
+		categorieDao.add(entity);
 		
 	}
 
 	@Override
-	public void removeCategory(int id) {
-		// TODO Auto-generated method stub
+	public void update(Categorie entity) {
+		categorieDao.update(entity);
 		
 	}
 
 	@Override
-	public void updateCategory(Categorie categorie, int id) {
-		// TODO Auto-generated method stub
+	public void remove(Categorie entity) {
+		categorieDao.remove(entity);
 		
 	}
 
 	@Override
-	public List<Categorie> showCategories() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Categorie> show() {
+		
+		return categorieDao.getAll();
 	}
 
 	@Override
-	public Categorie getCategoryById(int id) {
+	public Categorie getById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return categorieDao.find(id);
 	}
 
-	@Override
-	public Categorie getCategoryByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+
+
+	
+
 
 }
