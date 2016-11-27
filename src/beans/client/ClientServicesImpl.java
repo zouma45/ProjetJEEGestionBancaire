@@ -2,42 +2,44 @@ package beans.client;
 
 import java.util.List;
 
-public class ClientServicesImpl implements ClientServices {
+import beans.GenericServicesImpl;
+import dao.ClientDAOImpl;
 
-	@Override
-	public void addClient(Client client) {
-		// TODO Auto-generated method stub
-		
+public class ClientServicesImpl extends GenericServicesImpl<Client, Integer> implements ClientServices {
+
+	ClientDAOImpl clientDao;
+
+	public ClientServicesImpl() {
+		clientDao = new ClientDAOImpl();
 	}
 
 	@Override
-	public void removeClient(int id) {
-		// TODO Auto-generated method stub
-		
+	public void add(Client entity) {
+		clientDao.add(entity);
+
 	}
 
 	@Override
-	public void updateClient(Client client, int id) {
-		// TODO Auto-generated method stub
-		
+	public void update(Client entity) {
+		clientDao.update(entity);
+
 	}
 
 	@Override
-	public List<Client> showClients() {
-		// TODO Auto-generated method stub
-		return null;
+	public void remove(Client entity) {
+		clientDao.remove(entity);
+
 	}
 
 	@Override
-	public Client getClientById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Client> show() {
+
+		return clientDao.getAll();
 	}
 
 	@Override
-	public Client getClientByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public Client getById(int id) {
+		return clientDao.find(id);
 	}
 
 }

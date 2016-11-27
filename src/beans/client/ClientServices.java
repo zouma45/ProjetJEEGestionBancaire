@@ -2,17 +2,17 @@ package beans.client;
 
 import java.util.List;
 
-public interface ClientServices {
-	public void addClient(Client client);
+import beans.GenericService;
 
-	public void removeClient(int id);
+public interface ClientServices extends GenericService<Client, Integer> {
+	public void add(Client client);
 
-	void updateClient(Client client, int id);
+	public void remove(Client client);
 
-	List<Client> showClients();
+	void update(Client client);
 
-	Client getClientById(int id);
+	List<Client> show();
 
-	Client getClientByName(String name);
+	Client getById(int id);
 
 }
