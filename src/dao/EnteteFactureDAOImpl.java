@@ -25,13 +25,13 @@ public class EnteteFactureDAOImpl extends GenericDaoHibernateImpl<EnteteFacture,
 	}
 
 	@Override
-	public EnteteFacture findEnteteFactureByID(Class clazz, Integer id) {
+	public EnteteFacture findEnteteFactureByID(Integer id) {
 
 		return super.find(id);
 	}
 
 	@Override
-	public List<EnteteFacture> findAllEnteteFacture(Class clazz) {
+	public List<EnteteFacture> findAllEnteteFacture() {
 
 		return super.getAll();
 	}

@@ -12,8 +12,8 @@ public interface EnteteFactureDAO extends GenericDao<EnteteFacture, Integer> {
 
 	public void supprimerEnteteFacture(EnteteFacture enteteFacture);
 
-	public EnteteFacture findEnteteFactureByID(Class clazz, Integer id);
+	public EnteteFacture findEnteteFactureByID(Integer id);
 
-	public List<EnteteFacture> findAllEnteteFacture(Class clazz);
+	public List<EnteteFacture> findAllEnteteFacture();
 
 }
