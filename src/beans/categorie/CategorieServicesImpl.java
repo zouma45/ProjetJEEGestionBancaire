@@ -11,7 +11,9 @@ import dao.CategorieDaoImpl;
 public class CategorieServicesImpl extends GenericServicesImpl<Categorie, Integer>  implements CategorieServices{
 	
 	CategorieDaoImpl categorieDao;
-	
+	public CategorieServicesImpl(){
+		categorieDao=new CategorieDaoImpl();
+	}
 	@Override
 	public void add(Categorie entity) {
 		categorieDao.add(entity);
@@ -38,7 +40,6 @@ public class CategorieServicesImpl extends GenericServicesImpl<Categorie, Intege
 
 	@Override
 	public Categorie getById(int id) {
-		// TODO Auto-generated method stub
 		return categorieDao.find(id);
 	}
 
