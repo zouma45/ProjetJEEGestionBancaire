@@ -2,21 +2,21 @@ package beans.produits;
 
 import java.util.List;
 
+import beans.GenericService;
 import beans.categorie.Categorie;
 
-public interface ProduitServices {
+public interface ProduitServices extends GenericService<Produit, Integer>{
 	
 	
-	public void addPoduit(Produit produit);
+	public void add(Produit produit);
 
-	public void removeProduit(int id);
+	public void remove(Produit produit);
 
-	void updateProduit(Produit categorie, int id);
+	void update(Produit categorie);
 
-	List<Produit> showProduits();
+	List<Produit> show();
 
-	Produit getProduitById(int id);
+	Produit getById(int id);
 	
-	Produit getProduitByName(String name);
 
 }

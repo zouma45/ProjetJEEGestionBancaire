@@ -8,10 +8,10 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		HibernateUtil hb = new HibernateUtil();
-		
+		//HibernateUtil hb = new HibernateUtil();
+		Client c1=new Client("mahdi", "zouch");
 		ClientServicesImpl clt = new ClientServicesImpl() ; 
-		clt.add(new Client("mahdi", "zouch"));
+		clt.add(c1);
 
 	}
 

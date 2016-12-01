@@ -13,7 +13,7 @@ public interface GenericService <T, PK extends Serializable> {
 	
 	public List<T> show();
 	
-    public T getById(PK id);;
+    public T getById(PK id);
 	
 	
 
