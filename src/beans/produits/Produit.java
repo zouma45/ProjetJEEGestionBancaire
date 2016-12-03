@@ -1,15 +1,27 @@
 package beans.produits;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-public class Produit {
+import beans.categorie.Categorie;
+
+@Entity
+public class Produit implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
@@ -19,7 +31,7 @@ public class Produit {
 	private String titre;
 
 	@Column(name = "description")
-	private int description;
+	private String description;
 
 	@Column(name = "prix")
 	private double prix;
@@ -27,14 +39,17 @@ public class Produit {
 	private Date date;
 	@Column(name = "quantite")
 	private int quantite;
-
+	
+	@ManyToOne
+	@JoinColumn(name="idCateg")
+	private Categorie categorie ;
 
 
 	public Produit() {
 		super();
 	}
 
-	public Produit(String titre, int description, double prix, Date date, int quantite) {
+	public Produit(String titre, String description, double prix, Date date, int quantite) {
 		super();
 		this.titre = titre;
 		this.description = description;
@@ -59,11 +74,11 @@ public class Produit {
 		this.titre = titre;
 	}
 
-	public int getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(int description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -81,6 +96,14 @@ public class Produit {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
 	}
 
 	public int getQuantite() {

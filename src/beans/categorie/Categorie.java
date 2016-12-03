@@ -1,26 +1,34 @@
 package beans.categorie;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import beans.produits.Produit;
 
-public class Categorie {
+@Entity
+public class Categorie implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
-	private int id;
+	@Column(name = "idCateg")
+	private int idCateg;
 	
 	@Column(name = "labelle")
 	private String labelle;
 	
-	@OneToMany(mappedBy = "produit")
-	private List<Produit> associations = new ArrayList<Produit>();
+	@OneToMany()
+	private List<Produit> produits;
 
 	public Categorie() {
 		super();
@@ -31,12 +39,12 @@ public class Categorie {
 		this.labelle = labelle;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdCateg() {
+		return idCateg;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdCateg(int idCateg) {
+		this.idCateg = idCateg;
 	}
 
 	public String getLabelle() {
