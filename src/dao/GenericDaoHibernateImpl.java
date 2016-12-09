@@ -55,14 +55,13 @@ public abstract class GenericDaoHibernateImpl<E, PK extends Serializable> implem
 
 	@Override
 	public void update(E entity) {
-		currentSession().beginTransaction();
 		currentSession().update(entity);
 		currentSession().getTransaction().commit();
 	}
 
 	@Override
 	public void remove(E entity) {
-		currentSession().beginTransaction();
+
 		// E oldEntity = (E) currentSession().l;
 		currentSession().delete(entity);
 		currentSession().getTransaction().commit();
@@ -70,7 +69,7 @@ public abstract class GenericDaoHibernateImpl<E, PK extends Serializable> implem
 
 	@Override
 	public E find(PK key) {
-		currentSession().beginTransaction();
+		
 		return (E) currentSession().get(daoType, key);
 	}
 

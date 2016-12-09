@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import beans.produits.Produit;
 
-
-
 public class ProduitDaoImpl extends GenericDaoHibernateImpl<Produit, Integer> implements ProduitDao {
 
 	@Override
