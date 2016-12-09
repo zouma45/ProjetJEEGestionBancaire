@@ -23,58 +23,82 @@ import beans.produits.ProduitServicesImpl;
 @WebServlet("/ClientServ")
 public class ClientServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ClientServ() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		ClientServicesImpl clientServices = new ClientServicesImpl(); 
-
-		if((request.getParameter("nom") != null ) && (request.getParameter("adresse") != null )  ){
-		
-				String nom= request.getParameter("nom")  ; 
-				String description= request.getParameter("adresse")  ; 
-
-				
-			
-				Client client= new Client(nom, description) ; 
-				clientServices.add(client);
-				
-				
-		
-		}
-		if(request.getParameter("compteIdSup") != null){
-			Client c = clientServices.getById(Integer.parseInt(request.getParameter("compteIdSup")));
-			clientServices.remove(c);
-		}
-		if(request.getParameter("compteIdModif") != null){
-			Client c = clientServices.getById(Integer.parseInt(request.getParameter("compteIdModif")));
-			HttpSession session = request.getSession(true);
-			session.setAttribute("client", c);
-			response.sendRedirect("clientView.jsp");
-		}
-		List<Client> clients = clientServices.show();
-		HttpSession session = request.getSession(true);
-		session.setAttribute("clients", clients);
-
-		response.sendRedirect("clientView.jsp");
-		
+	public ClientServ() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ClientServicesImpl clientServices = new ClientServicesImpl();
+
+		if ((request.getParameter("nom") != null) && (request.getParameter("adresse") != null)) {
+
+			String nom = request.getParameter("nom");
+			String description = request.getParameter("adresse");
+
+			Client client = new Client(nom, description);
+			clientServices.add(client);
+			List<Client> clients = clientServices.show();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("clients", clients);
+
+			response.sendRedirect("clientView.jsp");
+
+		} else if ((request.getParameter("mnom") != null) && (request.getParameter("madresse") != null)) {
+
+			String nom = request.getParameter("mnom");
+			String adresse = request.getParameter("madresse");
+
+			Client client = clientServices.getById(Integer.parseInt(request.getParameter("idClient")));
+			client.setAdresse(adresse);
+			client.setNom(nom);
+			clientServices.update(client);
+			List<Client> clients = clientServices.show();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("clients", clients);
+
+			response.sendRedirect("clientView.jsp");
+
+		} else if (request.getParameter("compteIdSup") != null) {
+			Client c = clientServices.getById(Integer.parseInt(request.getParameter("compteIdSup")));
+			clientServices.remove(c);
+			List<Client> clients = clientServices.show();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("clients", clients);
+
+			response.sendRedirect("clientView.jsp");
+		} else if (request.getParameter("compteIdModif") != null) {
+			Client c = clientServices.getById(Integer.parseInt(request.getParameter("compteIdModif")));
+			HttpSession session = request.getSession(true);
+			session.setAttribute("client", c);
+			response.sendRedirect("updateClient.jsp");
+		} else {
+			List<Client> clients = clientServices.show();
+			HttpSession session = request.getSession(true);
+			session.setAttribute("clients", clients);
+
+			response.sendRedirect("clientView.jsp");
+		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

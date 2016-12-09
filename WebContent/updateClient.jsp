@@ -20,13 +20,13 @@
 	<form action="ClientServ" method="post">
 	 <div class="form-group">
     <label for="exampleInputEmail1">Nom Client: </label>
-    <input type="text" class="form-control" id="nom"  name="nom" value=<%=client.getNom()  %>/>
+    <input type="text" class="form-control" id="mnom"  name="mnom" value=<%=client.getNom()  %>/>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Adresse: </label>
-    <input type="text" class="form-control" id="exampleInputPassword1" name="adresse" value=<%=client.getAdresse()  %>/>
+    <input type="text" class="form-control" id="mexampleInputPassword1" name="madresse" value=<%=client.getAdresse()  %>/>
   </div>
-  
+  <input type="hidden" name="idClient" value=<%=client.getId() %>>
   <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 

@@ -52,9 +52,9 @@
 						<td><c:out value="${p.categorie.idCateg} " /></td>
 
 						<td><a
-							href='<c:url value="CompteServlet?compteIdSup=${p.id}"/>'>Supprimer</a></td>
+							href='<c:url value="EntryServlet?produitIdSup=${p.id}"/>'>Supprimer</a></td>
 						<td><a
-							href='<c:url value="CompteBancaireServlet?compteIdModif=${p.id}"/>'>Modifier</a></td>
+							href='<c:url value="EntryServlet?compteIdModif=${p.id}"/>'>Modifier</a></td>
 					</tr>
 				</c:forEach>
 			</c:if>
