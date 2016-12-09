@@ -49,13 +49,14 @@ public class Produit implements Serializable{
 		super();
 	}
 
-	public Produit(String titre, String description, double prix, Date date, int quantite) {
+	public Produit(String titre, String description, double prix, Date date, int quantite ,  Categorie categorie) {
 		super();
 		this.titre = titre;
 		this.description = description;
 		this.prix = prix;
 		this.date = date;
 		this.quantite = quantite;
+		this.categorie= categorie ;
 	}
 
 	public int getId() {

@@ -1,13 +1,12 @@
 package main;
 
-import java.sql.Date;
-
 import beans.categorie.Categorie;
 import beans.categorie.CategorieServicesImpl;
 import beans.client.Client;
 import beans.client.ClientServicesImpl;
 import beans.produits.Produit;
 import beans.produits.ProduitServicesImpl;
+import util.HibernateUtil;
 
 
 public class Test {
@@ -27,7 +26,7 @@ public class Test {
 		java.util.Date utilDate = new java.util.Date();
 	    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 	    
-		Produit p1=new Produit("lfd", "klokfdj",24,sqlDate,2);
+		Produit p1=new Produit("lffuckd", "klokfdj",24,sqlDate,2, cat);
 		ProduitServicesImpl pr = new ProduitServicesImpl() ; 
 		p1.setCategorie(cat);
 		pr.add(p1);
