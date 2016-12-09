@@ -47,35 +47,43 @@ public abstract class GenericDaoHibernateImpl<E, PK extends Serializable> implem
 
 	@Override
 	public void add(E entity) {
+		currentSession().close();
 		currentSession().beginTransaction();
 		currentSession().save(entity);
 		currentSession().getTransaction().commit();
+		//currentSession().close();
 
 	}
 
 	@Override
 	public void update(E entity) {
+		currentSession().close();
 		currentSession().beginTransaction();
 		currentSession().update(entity);
 		currentSession().getTransaction().commit();
+		
 	}
 
 	@Override
 	public void remove(E entity) {
+		currentSession().close();
 		currentSession().beginTransaction();
 		// E oldEntity = (E) currentSession().l;
 		currentSession().delete(entity);
 		currentSession().getTransaction().commit();
+		//currentSession().close();
 	}
 
 	@Override
 	public E find(PK key) {
+		currentSession().close();
 		currentSession().beginTransaction();
 		return (E) currentSession().get(daoType, key);
 	}
 
 	@Override
 	public List<E> getAll() {
+		currentSession().close();
 		currentSession().beginTransaction();
 		return currentSession().createCriteria(daoType).list();
 	}

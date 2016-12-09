@@ -36,15 +36,15 @@ public class ProduitServicesImpl extends GenericServicesImpl<Produit, Integer> i
 
 	@Override
 	public List<Produit> show() {
-		// TODO Auto-generated method stub
+		
 		return produitDao.getAll();
 	}
 
 
 	@Override
 	public Produit getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return produitDao.retourner(id) ;
 	}
 
 	
