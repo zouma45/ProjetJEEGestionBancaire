@@ -28,11 +28,13 @@ import util.HibernateUtil;
 public class EntryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HibernateUtil hb;
+	List<Produit> produits ; 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public EntryServlet() {
 		super();
+		
 		
 	}
 
@@ -66,7 +68,7 @@ public class EntryServlet extends HttpServlet {
 				
 		
 		}
-		List<Produit> produits = produitServices.show();
+		 produits = produitServices.show();
 		HttpSession session = request.getSession(true);
 		session.setAttribute("produits", produits);
 
