@@ -1,9 +1,15 @@
 package beans.client;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import beans.entete_facture.EnteteFacture;
+import beans.produits.Produit;
 
 @Entity
 public class Client {
@@ -19,6 +25,9 @@ public class Client {
 	@Column(name = "adresse")
 	private String adresse;
 
+	@OneToMany(mappedBy="client")
+	private List<EnteteFacture> enteteFactures;
+	
 	public Client() {
 		super();
 	}

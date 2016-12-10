@@ -16,6 +16,9 @@
      <mapping class="beans.client.Client"/>  
       <mapping class="beans.categorie.Categorie"/>  
        <mapping class="beans.produits.Produit"/>  
+      <mapping class="beans.ligne_facture.LigneFacture"/>  
+      <mapping class="beans.entete_facture.EnteteFacture"/>  
+              
     <!--  <mapping class="com.zouch.beans.EnteteFacture"/> 
      <mapping class="com.zouch.beans.LigneFacture"/> 
      <mapping class="com.zouch.beans.Produit"/>  -->

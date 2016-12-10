@@ -27,7 +27,7 @@ public class Categorie implements Serializable{
 	@Column(name = "labelle")
 	private String labelle;
 	
-	@OneToMany()
+	@OneToMany(mappedBy="categorie")
 	private List<Produit> produits;
 
 	public Categorie() {

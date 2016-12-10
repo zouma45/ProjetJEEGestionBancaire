@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import beans.categorie.Categorie;
+import beans.ligne_facture.LigneFacture;
 
 @Entity
 public class Produit implements Serializable{
@@ -43,6 +44,10 @@ public class Produit implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idCateg")
 	private Categorie categorie ;
+	
+	@ManyToOne
+	@JoinColumn(name="idLigne")
+	private LigneFacture ligneFacture ;
 
 
 	public Produit() {
@@ -115,4 +120,13 @@ public class Produit implements Serializable{
 		this.quantite = quantite;
 	}
 
+	public LigneFacture getLigneFacture() {
+		return ligneFacture;
+	}
+
+	public void setLigneFacture(LigneFacture ligneFacture) {
+		this.ligneFacture = ligneFacture;
+	}
+	
+	
 }
