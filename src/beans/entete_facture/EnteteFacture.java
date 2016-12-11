@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import beans.client.Client;
+import beans.ligne_facture.LigneFacture;
+import beans.produits.Produit;
 
+@Entity
 public class EnteteFacture {
 
 	
@@ -21,14 +27,15 @@ public class EnteteFacture {
 	@Column(name = "data")
 	private String data;
 
-	@Column(name = "idClient")
-	Client client;
+
 	
 	
-	 	@OneToMany(mappedBy="client")
-	    private List<Client> associations = new ArrayList<Client>();
+	@ManyToOne
+	@JoinColumn(name="idClient")
+	    private Client client ;
 		
-	 	
+	 	@OneToMany(mappedBy="enteteFacture")
+		private List<LigneFacture> ligneFactures;
 	
 
 	public EnteteFacture() {
@@ -36,10 +43,11 @@ public class EnteteFacture {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EnteteFacture(String data, Client client) {
+	public EnteteFacture(String data, Client client,List<LigneFacture> ligneFactures) {
 		super();
-		data = data;
+		this.data = data;
 		this.client = client;
+		this.ligneFactures=ligneFactures ;
 	}
 
 	public int getId() {
