@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,11 +42,11 @@ public class Produit implements Serializable{
 	@Column(name = "quantite")
 	private int quantite;
 	
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.ALL})
 	@JoinColumn(name="idCateg")
 	private Categorie categorie ;
 	
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.ALL})
 	@JoinColumn(name="idLigne")
 	private LigneFacture ligneFacture ;
 
@@ -54,6 +55,17 @@ public class Produit implements Serializable{
 		super();
 	}
 
+	public Produit(String titre, String description, double prix, Date date, int quantite ,  Categorie categorie, LigneFacture ligneFacture) {
+		super();
+		this.titre = titre;
+		this.description = description;
+		this.prix = prix;
+		this.date = date;
+		this.quantite = quantite;
+		this.categorie= categorie ;
+		this.ligneFacture= ligneFacture ; 
+	}
+	
 	public Produit(String titre, String description, double prix, Date date, int quantite ,  Categorie categorie) {
 		super();
 		this.titre = titre;
@@ -62,6 +74,7 @@ public class Produit implements Serializable{
 		this.date = date;
 		this.quantite = quantite;
 		this.categorie= categorie ;
+		this.ligneFacture= ligneFacture ; 
 	}
 
 	public int getId() {

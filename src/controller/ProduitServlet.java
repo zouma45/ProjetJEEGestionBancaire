@@ -24,7 +24,7 @@ import util.HibernateUtil;
 /**
  * Servlet implementation class EntryServlet
  */
-@WebServlet("/ProduitServ")
+@WebServlet("/ProduitServlet")
 public class ProduitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HibernateUtil hb;
@@ -51,7 +51,7 @@ public class ProduitServlet extends HttpServlet {
 		session = request.getSession(true);
 		session.setAttribute("cats", categs);
 
-		if((request.getParameter("nom") != null ) && (request.getParameter("description") != null ) && (request.getParameter("prix") != null ) && (request.getParameter("quantite") != null ) && (request.getParameter("idCateg") != null ) ){
+		if((request.getParameter("nom") != null ) && (request.getParameter("description") != null ) && (request.getParameter("prix") != null ) && (request.getParameter("quantite") != null )  ){
 		
 				String nom= request.getParameter("nom")  ; 
 				String description= request.getParameter("description")  ; 
@@ -63,7 +63,7 @@ public class ProduitServlet extends HttpServlet {
 				
 				java.util.Date utilDate = new java.util.Date();
 			    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-				Produit produit = new Produit(nom, description, prix, sqlDate, quantite , c) ; 
+				Produit produit = new Produit(nom, description, prix, sqlDate, quantite , c ) ; 
 				produitServices.add(produit);
 				
 				
@@ -94,7 +94,7 @@ public class ProduitServlet extends HttpServlet {
 				p.setQuantite(quantite);
 				p.setTitre(nom);
 				p.setDescription(description);
-				System.out.println("biiiiitch ");
+			
 				produitServices.update(p);
 				
 				
@@ -123,7 +123,8 @@ public class ProduitServlet extends HttpServlet {
 		else 
 			if((request.getParameter("produitIdModif") != null )) {
 				
-				Produit p = produitServices.getById(Integer.parseInt(request.getParameter("compteIdModif"))) ; 
+				System.out.println(request.getParameter("produitIdModif"));
+				Produit p = produitServices.getById(Integer.parseInt(request.getParameter("produitIdModif"))) ; 
 				 session = request.getSession(true);
 				session.setAttribute("produit", p);
 				response.sendRedirect("modifView.jsp");;

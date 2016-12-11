@@ -18,11 +18,12 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      
-      <button type="button" class="btn btn-primary btn-lg btn-block">Gestion Categorie</button>
+       <form action="CategorieServlet">
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Gestion Categorie</button>
+      </form>
     </div>
     <div class="col-sm-3">
-   <form action="ProduitServ">
+   <form action="ProduitServlet">
  <button type="submit" class="btn btn-primary btn-lg btn-block" >Gestion Produit</button>
  </form>
     </div>

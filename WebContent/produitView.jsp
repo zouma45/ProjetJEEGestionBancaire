@@ -25,30 +25,30 @@
 	
 	<div class="form-group">
     	<label for="nom">Nom Produit: </label>
-		<input type="text" name="nom"> 
+		<input type="text" class="form-control" name="nom"> 
 	</div>
 	<div class="form-group">
     	<label for="nom">Description </label>	
-		<input type="text" name="description">
+		<input type="text" class="form-control" name="description">
 	</div>
 	
 		<div class="form-group">
     	<label for="nom">Prix </label>
-		<input type="text" name="prix">
+		<input type="text" class="form-control" name="prix">
 		</div>
 	
 		<div class="form-group">
     	<label for="nom">Quantite</label>
-				<input type="text" name="quantite">
+				<input type="text" class="form-control" name="quantite">
 		</div>
 		
 		<div class="form-group">
     	<label for="nom">Categorie</label>
-										<select>
+										<select name="idCateg">
 											<c:if test="${not empty cats}">
 												<c:forEach items="${cats}" var="c">
   												<option value="${c.idCateg}">${c.labelle}</option>
-  											
+
   												</c:forEach>
 											</c:if>
 										</select>
@@ -88,9 +88,8 @@
 						<td><c:out value="${p.categorie.idCateg} " /></td>
 
 						<td><a
-							href='<c:url value="EntryServlet?produitIdSup=${p.id}"/>'>Supprimer</a></td>
-						<td><a
-							href='<c:url value="EntryServlet?produitIdModif=${p.id}"/>'>Modifier</a></td>
+							href='<c:url value="ProduitServlet?produitIdSup=${p.id}"/>'>Supprimer</a></td>
+						<td><a href='<c:url value="ProduitServlet?produitIdModif=${p.id}"/>'>Modifier</a></td>
 					</tr>
 				</c:forEach>
 			</c:if>

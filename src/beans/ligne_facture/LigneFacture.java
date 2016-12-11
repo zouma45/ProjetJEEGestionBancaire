@@ -1,7 +1,9 @@
 package beans.ligne_facture;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ import beans.entete_facture.EnteteFacture;
 import beans.produits.Produit;
 
 @Entity
-public class LigneFacture {
+public class LigneFacture implements Serializable  {
 
 	@Id
 	@GeneratedValue
@@ -27,17 +29,18 @@ public class LigneFacture {
 	@OneToMany(mappedBy="ligneFacture")
 	private List<Produit> produits;
 	
-	@ManyToOne
-	@JoinColumn(name="idEntete")
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="idEntete"  )
 	private EnteteFacture enteteFacture ;
 
 	public LigneFacture() {
 		super();
 	}
 
-	public LigneFacture(List<Produit> produits) {
+	public LigneFacture(EnteteFacture enteteFacture) {
 		super();
-		this.produits=produits ;
+		//this.produits=produits ;
+		this.enteteFacture = enteteFacture ; 
 		
 	}
 

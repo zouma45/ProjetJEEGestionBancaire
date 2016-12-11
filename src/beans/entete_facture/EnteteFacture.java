@@ -3,6 +3,7 @@ package beans.entete_facture;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,12 +31,12 @@ public class EnteteFacture {
 
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.ALL})
 	@JoinColumn(name="idClient")
 	    private Client client ;
 		
-	 	@OneToMany(mappedBy="enteteFacture")
-		private List<LigneFacture> ligneFactures;
+	@OneToMany(mappedBy="enteteFacture")
+	private List<LigneFacture> ligneFactures;
 	
 
 	public EnteteFacture() {
@@ -43,11 +44,11 @@ public class EnteteFacture {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EnteteFacture(String data, Client client,List<LigneFacture> ligneFactures) {
+	public EnteteFacture(String data, Client client) {
 		super();
 		this.data = data;
 		this.client = client;
-		this.ligneFactures=ligneFactures ;
+
 	}
 
 	public int getId() {
@@ -63,7 +64,7 @@ public class EnteteFacture {
 	}
 
 	public void setData(String data) {
-		data = data;
+		this.data = data;
 	}
 
 	public Client getClient() {
