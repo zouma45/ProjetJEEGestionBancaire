@@ -17,19 +17,30 @@
   
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       
-      <button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Categorie</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Gestion Categorie</button>
     </div>
-    <div class="col-sm-4">
- <button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Produit</button>
+    <div class="col-sm-3">
+   <form action="ProduitServ">
+ <button type="submit" class="btn btn-primary btn-lg btn-block" >Gestion Produit</button>
+ </form>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
+   <form action="ClientServ">
+       <button type="submit" class="btn btn-primary btn-lg btn-block">Gestion Client</button>
+   </form>
+    </div>
+    
+     <div class="col-sm-3">
+       <button type="button" class="btn btn-primary btn-lg btn-block">Gestion Facture</button>
+    </div>
    
-       <button type="button" class="btn btn-primary btn-lg btn-block">Ajouter Client</button>
-    </div>
   </div>
+   
 </div>
+
+
 
 </body>
 </html>

@@ -14,7 +14,7 @@
 		Produit p =  (Produit) session.getAttribute("produit");
 		out.print(p);
 	%>
-	<form action="EntryServlet" method="post">
+	<form action="ProduitServ" method="post">
 	 		<input type="hidden" name="idProd"  value="<%= p.getId() %>" >
 		Nom Produit: <input type="text" name="mnom" value="<%= p.getTitre() %>" > <br>
 				Description: <input type="text" name="mdescription"  value="<%= p.getDescription()%>"  ><br>
